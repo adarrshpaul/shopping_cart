@@ -14,3 +14,13 @@ class MenuView(generics.ListCreateAPIView):
     
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
+    
+class ItemsView(generics.RetrieveAPIView):
+    queryset = models.Menu.objects.all()
+    serializer_class =  serialzers.MenuSerializer
+    
+class CategoryView(generics.CreateAPIView):
+    queryset = models.Menu.objects.all()
+    serializer_class =  serialzers.CategorySerializer
+    
+    
